@@ -1,47 +1,54 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>5nake.com - Play Classic Snake in Your Browser with HTML5!</title>
         <meta name="description" content="Play the classic game, Snake, in your web-browser with HTML5!">
-        <link rel="stylesheet" href="css/main.css">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.1359211041.css">
     </head>
 
     <body>
     	<div id="container">
         	<div id="nothingsuspicious"></div>
         	<div id="menu">
-            Select difficulty level:<br>
-            <select id="difficulty">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6" selected>6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-            </select>
+                Select difficulty level:<br>
+                <div id="settings">
+                    <select id="difficulty">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6" selected>6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+		        </div>
             
-            <input type="button" id="startbtn" value="Start Game!" autofocus><br>
-            <input type="button" id="screenshotbtn" value="Show Previous Game" style="display: none;">
+                <input type="button" id="startbtn" value="Start Game!" autofocus><br>
+                <input type="button" id="screenshotbtn" value="Show Previous Game" style="display: none;">
             
-            <div style="top: 600px; position: absolute;">
-				<!--Start social media links-->
-            	<div style="display: block;">
-                    <div id="fb-root"></div>
-                    <script>(function(d, s, id) {
-                      var js, fjs = d.getElementsByTagName(s)[0];
-                          if (d.getElementById(id)) return;
-                          js = d.createElement(s); js.id = id;
-                          js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=109108372602987";
-                          fjs.parentNode.insertBefore(js, fjs);
-                        }(document, 'script', 'facebook-jssdk'));</script>
-                    <div class="fb-like" data-href="http://5nake.com" data-send="false" data-layout="button_count" data-width="130" data-show-faces="false"></div>
-                </div>
-            	<div style="display: block; margin: 0 0 10px 0;">
-                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://5nake.com" data-text="Play classic Snake in your browser with HTML5!" data-via="ChrisMorrisOrg" data-hashtags="5nake">Tweet</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                <div style="top: 600px; position: absolute;">
+				    <!--Start social media links-->
+            	    <div style="display: block;">
+                        <div id="fb-root"></div>
+                        <script>(function(d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0];
+                            if (d.getElementById(id)) return;
+                                js = d.createElement(s); js.id = id;
+                                js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=109108372602987";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));</script>
+                        <div class="fb-like" data-href="http://5nake.com" data-send="false" data-layout="button_count" data-width="130" data-show-faces="false"></div>
+                    </div>
+            	    <div style="display: block; margin: 0 0 10px 0;">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://5nake.com" data-text="Play classic Snake in your browser with HTML5!" data-via="ChrisMorrisOrg" data-hashtags="5nake">Tweet</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     			</div>
                 <!--End social media links-->
             	<a href="https://github.com/ChrisMorrisOrg/5nake">Fork 5nake on GitHub!</a><br>
