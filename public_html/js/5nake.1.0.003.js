@@ -54,11 +54,20 @@ $(document).ready(function(){
 		difficulty = parseInt($("#difficulty").val());
 	});
 	
+
+        // Bring up the screnshot of the previous game
 	$("#screenshotbtn").click(function(){
 		$("#screenshot").attr("src", screenshotURL);
 		$("#menu").hide();
 		$("#screenshot").show();
-		setTimeout(menu, 5000);
+		var screenshot_timeout = setTimeout(menu, 5000);
+	});
+
+        // If the user clicks on the screenshot, close it and return to the menu
+	$("#screenshot").click(function(){
+                if(typeof screenshot_timeout != "undefined")
+                	clearTimeout(screenshot_timeout);
+		menu();
 	});
 
 
