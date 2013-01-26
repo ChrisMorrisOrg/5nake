@@ -8,7 +8,7 @@ Follow the project: @5nakeCom
 */
 
 $(document).ready(function(){
-	if(window.innerHeight < 770	){
+	if(window.innerHeight < 770){
 		$('html, body').animate({
 			scrollTop: $("#game").offset().top
 		}, 5000);
@@ -21,8 +21,8 @@ $(document).ready(function(){
 	var cell_size = 10;
 	var difficulty = 6;
 	var keyDown = false;
-	var COLOUR_FOREGROUND = "#404c37";// Original: #afb
-	var COLOUR_BACKGROUND = "#8bbca6";// Original: #496
+	var COLOUR_FOREGROUND = "#404c37"; // Original: #afb
+	var COLOUR_BACKGROUND = "#8bbca6"; // Original: #496
 	var SPEED_FACTOR = 250;
 	var transparentBackground = true;
 	var score = 0;
@@ -72,14 +72,14 @@ $(document).ready(function(){
 		ctx.fillText("Score: " + score, 10, 100);
 		
 		if(score == 69*difficulty){
-			setTimeout(rickRoll, 2000);
+			setTimeout(trollolol, 2000);
 		}else{
 			setTimeout(menu, 2000);
 		}
 	}
 	
-	function rickRoll(){
-		// Thanks for the tip James!
+	function trollolol(){
+		// Thanks for the tip James, but Rick Astley!
 		// Josh, I've put it in v1 just for you.
 		ctx.clearRect(0,0,canvas.width,canvas.height);
 		$("#nothingsuspicious").html('<iframe width="413" height="310" src="http://www.youtube.com/embed/oavMtUWDBTM?autoplay=1" frameborder="0" allowfullscreen></iframe>');
@@ -207,13 +207,13 @@ $(document).ready(function(){
 			keyDown = true;
 			var key = e.which;
 
-			if(key == "37" && direction != "right")
+			if((key == "37" || key == "65") && direction != "right")
 				direction = "left";
-			else if (key == "38" && direction != "down")
+			else if ((key == "38" || key == "87") && direction != "down")
 				direction = "up";
-			else if (key == "39" && direction != "left")
+			else if ((key == "39" || key == "68") && direction != "left")
 				direction = "right";
-			else if (key == "40" && direction != "up")
+			else if ((key == "40" || key == "83") && direction != "up")
 				direction = "down";
 			//else if (key == "80")
 			//	pauseGame();
