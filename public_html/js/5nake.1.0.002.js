@@ -67,6 +67,7 @@ $(document).ready(function(){
 		ctx.clearRect(0,0,canvas.width,canvas.height);
 		
 		ctx.fillStyle = COLOUR_FOREGROUND;
+		ctx.textAlign = "left";
 		ctx.font = "bold 50px monospace";
 		ctx.fillText("Game Over!", 10, 50);
 		ctx.fillText("Score: " + score, 10, 100);
@@ -175,6 +176,12 @@ $(document).ready(function(){
 			var c = snake_array[i];
 			generateBlock(c.x, c.y, COLOUR_FOREGROUND, COLOUR_BACKGROUND);
 		}
+
+		// Display score
+		ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+		ctx.font = "bold 50px monospace";
+		ctx.textAlign = "center";
+		ctx.fillText(score, (w/2), (h/4)*3);
 
 		// Generate food
 		generateBlock(food.x, food.y, COLOUR_FOREGROUND);
