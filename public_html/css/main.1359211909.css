@@ -5,3 +5,4 @@ body { background: #000 url('../img/nokia.png') no-repeat top center; overflow: 
 #settings { padding: 10px 0 20px 0; }
 
 select { width: 140px;height: 34px; overflow: hidden; border: 1px solid #999; }
+#screenshot { cursor: pointer; }
