@@ -1,6 +1,6 @@
 /**
 5nake.js - Classic Snake in HTML5
-v1.0.010 - 27-Jan-2013, 1:43:20 pm
+v1.0.011 - 27-Jan-2013, 3:55:58 pm
 
 Created by Chris Morris (http://chrismorris.org)
 Fork the project at https://github.com/ChrisMorrisOrg/5nake
@@ -29,7 +29,7 @@ $(document).ready(function(){
 	var gamePaused = false;
 	var keystroke_array = []
 	var next_direction = [];
-	var direction, food, snake_array, screenshotURL;
+	var direction, food, snake_array, screenshotURL, backtomenu_timeout;
 
 	menu();
 
@@ -62,13 +62,13 @@ $(document).ready(function(){
 		$("#screenshot").attr("src", screenshotURL);
 		$("#menu").hide();
 		$("#screenshot").show();
-		var screenshot_timeout = setTimeout(menu, 5000);
+		backtomenu_timeout = setTimeout(menu, 5000);
 	});
 
         // If the user clicks on the screenshot, close it and return to the menu
 	$("#screenshot").click(function(){
                 if(typeof screenshot_timeout != "undefined")
-                	clearTimeout(screenshot_timeout);
+                	clearTimeout(backtomenu_timeout);
 		menu();
 	});
 
@@ -86,7 +86,7 @@ $(document).ready(function(){
 		if(score == 69*difficulty){
 			setTimeout(trollolol, 2000);
 		}else{
-			setTimeout(menu, 2000);
+			backtomenu_timeout = setTimeout(menu, 2000);
 		}
 	}
 	
@@ -111,6 +111,8 @@ $(document).ready(function(){
 
 		if(typeof game_loop != "undefined")
 			clearInterval(game_loop);
+        if(typeof backtomenu_timeout != "undefined")
+            clearTimeout(backtomenu_timeout);
 		// Update the screen at a rate relative to the difficulty level
 		game_loop = setInterval(draw, SPEED_FACTOR/difficulty);
 	}
