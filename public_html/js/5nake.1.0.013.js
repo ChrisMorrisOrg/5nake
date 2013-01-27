@@ -1,6 +1,6 @@
 /**
 5nake.js - Classic Snake in HTML5
-v1.0.012 - 27-Jan-2013, 5:51:40 pm
+v1.0.013 - 27-Jan-2013, 7:52:34 pm
 
 Created by Chris Morris (http://chrismorris.org)
 Fork the project at https://github.com/ChrisMorrisOrg/5nake
@@ -75,7 +75,8 @@ $(document).ready(function(){
 
 
 	function endGame(){
-		// Comment this code out
+                // Update games played counter
+		// If you don't want to post number of games played, cut from here
 		$.ajax({
 			type: 'POST',
 			url: 'http://5nake.com/plays',
@@ -89,7 +90,7 @@ $(document).ready(function(){
 				$('.playcount').text(data.plays + " plays to date!");
 			},
 		});
-		// Up to here if you're not counting plays.
+		// and finish cutting here.
 
 		clearInterval(game_loop);
 		ctx.clearRect(0,0,canvas.width,canvas.height);
