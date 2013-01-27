@@ -1,6 +1,6 @@
 /**
 5nake.js - Classic Snake in HTML5
-v1.0.000 - 26-Jan-2013, 10:14:30 pm
+v1.0.010 - 27-Jan-2013, 1:43:20 pm
 
 Created by Chris Morris (http://chrismorris.org)
 Fork the project at https://github.com/ChrisMorrisOrg/5nake
@@ -27,6 +27,8 @@ $(document).ready(function(){
 	var transparentBackground = true;
 	var score = 0;
 	var gamePaused = false;
+	var keystroke_array = []
+	var next_direction = [];
 	var direction, food, snake_array, screenshotURL;
 
 	menu();
@@ -100,6 +102,8 @@ $(document).ready(function(){
 	
 	function initGame(){
 		// Start the game going east.
+		keystroke_array = []
+		next_direction = [];
 		direction = "right";
 		createSnake();
 		createFood();
@@ -108,7 +112,7 @@ $(document).ready(function(){
 		if(typeof game_loop != "undefined")
 			clearInterval(game_loop);
 		// Update the screen at a rate relative to the difficulty level
-		game_loop = setInterval(colour, SPEED_FACTOR/difficulty);
+		game_loop = setInterval(draw, SPEED_FACTOR/difficulty);
 	}
 
 
@@ -135,7 +139,23 @@ $(document).ready(function(){
 	}
 
 
-	function colour(){
+	function draw(){
+		// Process upcoming movement
+		if(next_direction[0] != null){
+			var next_move = keystroke_array[0];
+			keystroke_array.shift();
+			
+			if(next_move == "left" && direction != "right")
+				direction = "left";
+			else if (next_move == "up" && direction != "down")
+				direction = "up";
+			else if (next_move == "right" && direction != "left")
+				direction = "right";
+			else if (next_move == "down" && direction != "up")
+				direction = "down";
+		}
+
+		
 		// Position of Snake's head.
 		var snake_head_x = snake_array[0].x;
 		var snake_head_y = snake_array[0].y;
@@ -218,23 +238,24 @@ $(document).ready(function(){
 
 	// Movement controls
 	$(document).keydown(function(e){
-		// If the user hasn't pressed a key within the last frame-update
-		if(keyDown == false){
-			keyDown = true;
-			var key = e.which;
+		var key = e.which;
 
-			if((key == "37" || key == "65") && direction != "right")
-				direction = "left";
-			else if ((key == "38" || key == "87") && direction != "down")
-				direction = "up";
-			else if ((key == "39" || key == "68") && direction != "left")
-				direction = "right";
-			else if ((key == "40" || key == "83") && direction != "up")
-				direction = "down";
-			//else if (key == "80")
-			//	pauseGame();
-		}
+		if(key == "37" || key == "65") // left or A
+			next_direction = "left";
+		else if (key == "38" || key == "87") // up or W
+			next_direction = "up";
+		else if (key == "39" || key == "68") // right or D
+			next_direction = "right";
+		else if (key == "40" || key == "83") // down or S
+			next_direction = "down";
+		
+		keystroke_array.push(next_direction);
 	});
+	
+	// On keydown, add direction to array for next frame update,
+	// On frame update, if direction is possible, change the direction.
+	
+	
 	
 	// TODO: Actually get pauseGame working.
 	function pauseGame(){
@@ -242,7 +263,7 @@ $(document).ready(function(){
 			clearInterval(game_loop);
 			gamePause = true;
 		}else{
-			game_loop = setInterval(colour, SPEED_FACTOR/difficulty);
+			game_loop = setInterval(draw, SPEED_FACTOR/difficulty);
 			gamePaused = false;
 		}
 	}

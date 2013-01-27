@@ -28,5 +28,12 @@ Coming Soon
 
 Version History
 ---------------
+### v1.0.010 (2013-Jan-27)
+- Bug fixes: Keystroke dropping fixed.
+- Score now shows in background.
+- WASD controlls added.
+- Styling updates.
+- Social media links fixed.
+
 ### v1.0.000 (2013-Jan-26)
 - Classic Snake launched with 9 difficulty settings, screenshot capabilities, scoring system, and more.
