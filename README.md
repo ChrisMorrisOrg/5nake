@@ -31,7 +31,7 @@ Version History
 ### v1.0.010 (2013-Jan-27)
 - Bug fixes: Keystroke dropping fixed.
 - Score now shows in background.
-- WASD controlls added.
+- WASD controls added.
 - Styling updates.
 - Social media links fixed.
 
