@@ -1,6 +1,6 @@
 /**
 5nake.js - Classic Snake in HTML5
-v1.0.013 - 27-Jan-2013, 7:52:34 pm
+v1.0.014 - 27-Jan-2013, 9:03:45 pm
 
 Created by Chris Morris (http://chrismorris.org)
 Fork the project at https://github.com/ChrisMorrisOrg/5nake
@@ -14,7 +14,7 @@ $(document).ready(function(){
 		}, 5000);
 	}
 	
-	var VERSION_NO = "1.0.012";
+	var VERSION_NO = "1.0.014";
 	var canvas = $("#game")[0];
 	var ctx = canvas.getContext("2d");
 	var w = $("#game").width();
