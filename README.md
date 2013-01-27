@@ -11,7 +11,6 @@ Snake5.com was taken, so I went with 5nake.com.
 
 Known Issues
 ------------
-- Pressing enter will re-start the game in a glitchy manner.
 - Styling improvements required.
 
 Coming Soon
