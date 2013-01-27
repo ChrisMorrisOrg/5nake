@@ -8,32 +8,37 @@
         <meta name="viewport" content="width=device-width">
 
         <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.1359211909.css">
+        <link rel="stylesheet" href="css/main.1359294402.css">
     </head>
 
     <body>
     	<div id="container">
         	<div id="nothingsuspicious"></div>
+            <div id="help" style="display: none;">
+            	<ol>
+            		<li>Eat as much food as possible.</li>
+                    <li>Avoid running into yourself any any other walls or obstacles.</li>
+                    <li>The faster your speed, the more points you get!</li>
+                    <li>Press "p" to pause, "esc" to end, "enter" to start again.</li>
+            	</ol>
+            </div>
+            <div id="settings" style="display: none;">
+            <div class="settingblock">
+                <label for="difficulty">Select Speed:</label>
+                <input id="difficulty" type="number" min="1" max="15" value="6">
+            </div>
+            <div class="settingblock">
+            	<input type="checkbox" id="walls"><label for="walls"> Enable Walls</label></div>
+            <input class="large startbtn" type="button" value="Start Game!">
+            </div>
         	<div id="menu">
-                Select difficulty level:<br>
-                <div id="settings">
-                    <select id="difficulty">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6" selected>6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                    </select>
+            	<input class="large startbtn" type="button" value="Start Game!" autofocus>
+                <input class="large" type="button" id="settingsbtn" value="Settings">
+                <div class="clear"></div>
+                <input class="small" type="button" id="screenshotbtn" value="Show Previous Game">
+                <input class="small" type="button" id="helpbtn" value="Help">
             
-                    <input type="button" id="startbtn" value="Start Game!" autofocus>
-                </div>
-                <input type="button" id="screenshotbtn" value="Show Previous Game" style="display: none;">
-            
-                <div style="top: 580px; position: absolute;">
+                <div style="top: 590px; position: absolute;">
                 <span class="playcount"></span>
                 <!--Start social media links-->
             	    <div style="display: block;">
@@ -62,7 +67,7 @@
         </div>
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-        <script src="js/5nake.1.0.014.js" type="text/javascript"></script>
+        <script src="js/5nake.1.1.000.js" type="text/javascript"></script>
         <script src="js/playcount.1359280970.js" type="text/javascript"></script>
         
 		<script type="text/javascript">

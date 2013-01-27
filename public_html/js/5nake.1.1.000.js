@@ -1,6 +1,6 @@
 /**
 5nake.js - Classic Snake in HTML5
-v1.0.014 - 27-Jan-2013, 9:03:45 pm
+v1.1.000 - 28-Jan-2013, 12:46:15 am
 
 Created by Chris Morris (http://chrismorris.org)
 Fork the project at https://github.com/ChrisMorrisOrg/5nake
@@ -14,7 +14,7 @@ $(document).ready(function(){
 		}, 5000);
 	}
 	
-	var VERSION_NO = "1.0.014";
+	var VERSION_NO = "1.1.000";
 	var canvas = $("#game")[0];
 	var ctx = canvas.getContext("2d");
 	var w = $("#game").width();
@@ -30,6 +30,7 @@ $(document).ready(function(){
 	var gamePaused = false;
 	var keystroke_array = []
 	var next_direction = [];
+	var walls = false;
 	var direction, food, snake_array, screenshotURL, backtomenu_timeout;
 
 	menu();
@@ -40,16 +41,24 @@ $(document).ready(function(){
 		$("#game").hide();
 		$("#screenshot").hide();
 		$("#menu").show();
-		$("#startbtn").focus();
+		$(".startbtn").focus();
 		if(screenshotURL){
 			$("#menu #screenshotbtn").show();
 		}
 		
-		$("#startbtn").click(function(){
+		$(".startbtn").click(function(){
 			$("#menu").hide();
+			$("#settings").hide();
 			$("#game").show();
 			$("#game").focus();
 			initGame();
+		});
+		
+		$("#settingsbtn").click(function(){
+			$("#menu").hide();
+			$("#game").hide();
+			$("#settings").show();
+			$("#settings").focus();
 		});
 	}
 	
@@ -57,8 +66,20 @@ $(document).ready(function(){
 		difficulty = parseInt($("#difficulty").val());
 	});
 	
+	$("#walls").change(function(){
+		if(this.checked)
+			walls = true;
+		else
+			walls = false;
+	});
+	
 
-        // Bring up the screnshot of the previous game
+	$("#helpbtn").click(function(){
+		$("#menu").hide();
+		$("#help").show();
+	});
+
+    // Bring up the screnshot of the previous game
 	$("#screenshotbtn").click(function(){
 		$("#screenshot").attr("src", screenshotURL);
 		$("#menu").hide();
@@ -189,7 +210,20 @@ $(document).ready(function(){
 			snake_head_y++;
 		else if(direction == "up")
 			snake_head_y--;
-		
+
+		// Allow the snake to travel through the walls if the user has opted to disable walls.
+		if(!walls){
+			if(snake_head_x <= -1)
+				snake_head_x = Math.abs((w-Math.abs(snake_head_x))%(w/cell_size)); // left
+			if(snake_head_x >= w/cell_size)
+				snake_head_x = Math.abs((w-Math.abs(snake_head_x))%(w/cell_size)); // right
+			if(snake_head_y <= -1)
+				snake_head_y = Math.abs((h-Math.abs(snake_head_y))%(h/cell_size)); // up
+			if(snake_head_y >= h/cell_size)
+				snake_head_y = Math.abs((h-Math.abs(snake_head_y))%(h/cell_size)); // down
+		}
+
+
 		// If the snake eats the food
 		if(snake_head_x == food.x && snake_head_y == food.y){
 			var tail = {x:snake_head_x, y:snake_head_y};
@@ -202,7 +236,7 @@ $(document).ready(function(){
 		}
 
 		// If the snake hits itself or a wall, die
-		if(snake_head_x <= -1 || snake_head_x >= w/cell_size || snake_head_y <= -1 || snake_head_y >= h/cell_size || doesCollide(snake_head_x, snake_head_y, snake_array)){
+		if((walls && (snake_head_x <= -1 || snake_head_x >= w/cell_size || snake_head_y <= -1 || snake_head_y >= h/cell_size)) || doesCollide(snake_head_x, snake_head_y, snake_array)){
 			screenshotURL = canvas.toDataURL();
 			endGame();
 			return;
@@ -268,6 +302,10 @@ $(document).ready(function(){
 			next_direction = "right";
 		else if (key == "40" || key == "83") // down or S
 			next_direction = "down";
+		else if (key == "27") // esc
+			endGame();
+		else if (key == "80") // P
+			pauseGame();
 		
 		keystroke_array.push(next_direction);
 	});
@@ -280,8 +318,8 @@ $(document).ready(function(){
 	// TODO: Actually get pauseGame working.
 	function pauseGame(){
 		if(!gamePaused){
+			gamePaused = true;
 			clearInterval(game_loop);
-			gamePause = true;
 		}else{
 			game_loop = setInterval(draw, SPEED_FACTOR/difficulty);
 			gamePaused = false;

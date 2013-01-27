@@ -1,8 +1,0 @@
-body { background: #000 url('../img/nokia.png') no-repeat top center; overflow: hidden; font-family: monospace; font-size: 24px; }
-#menu { padding: 15px;}
-#container { margin: 430px auto 50px auto; width: 430px; height: 310px; opacity: 0.8; }
-
-#settings { padding: 10px 0 20px 0; }
-
-select { width: 140px;height: 34px; overflow: hidden; border: 1px solid #999; }
-#screenshot { cursor: pointer; }
