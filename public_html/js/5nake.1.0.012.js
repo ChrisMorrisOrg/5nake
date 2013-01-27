@@ -75,6 +75,7 @@ $(document).ready(function(){
 
 
 	function endGame(){
+		// Comment this code out
 		$.ajax({
 			type: 'POST',
 			url: 'http://5nake.com/plays',
@@ -88,6 +89,7 @@ $(document).ready(function(){
 				$('.playcount').text(data.plays + " plays to date!");
 			},
 		});
+		// Up to here if you're not counting plays.
 
 		clearInterval(game_loop);
 		ctx.clearRect(0,0,canvas.width,canvas.height);
