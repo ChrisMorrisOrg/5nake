@@ -1,6 +1,6 @@
 /**
 5nake.js - Classic Snake in HTML5
-v1.1.000 - 28-Jan-2013, 12:46:15 am
+v1.1.001 - 28-Jan-2013, 6:18:05 pm
 
 Created by Chris Morris (http://chrismorris.org)
 Fork the project at https://github.com/ChrisMorrisOrg/5nake
@@ -14,7 +14,7 @@ $(document).ready(function(){
 		}, 5000);
 	}
 	
-	var VERSION_NO = "1.1.000";
+	var VERSION_NO = "1.1.001";
 	var canvas = $("#game")[0];
 	var ctx = canvas.getContext("2d");
 	var w = $("#game").width();
@@ -31,6 +31,8 @@ $(document).ready(function(){
 	var keystroke_array = []
 	var next_direction = [];
 	var walls = false;
+	var sounds = true;
+	var snd = new Audio("snd/eat.wav");
 	var direction, food, snake_array, screenshotURL, backtomenu_timeout;
 
 	menu();
@@ -40,11 +42,16 @@ $(document).ready(function(){
 		ctx.clearRect(0,0,canvas.width,canvas.height);
 		$("#game").hide();
 		$("#screenshot").hide();
+		$("#help").hide();
 		$("#menu").show();
 		$(".startbtn").focus();
 		if(screenshotURL){
 			$("#menu #screenshotbtn").show();
 		}
+		
+		$(".menubtn").click(function(){
+			menu();
+		});
 		
 		$(".startbtn").click(function(){
 			$("#menu").hide();
@@ -71,6 +78,13 @@ $(document).ready(function(){
 			walls = true;
 		else
 			walls = false;
+	});
+	
+	$("#sounds").change(function(){
+		if(this.checked)
+			sounds = true;
+		else
+			sounds = false;
 	});
 	
 
@@ -226,6 +240,8 @@ $(document).ready(function(){
 
 		// If the snake eats the food
 		if(snake_head_x == food.x && snake_head_y == food.y){
+			if(sounds)
+				snd.play();
 			var tail = {x:snake_head_x, y:snake_head_y};
 			createFood();
 			score += difficulty;
@@ -306,6 +322,8 @@ $(document).ready(function(){
 			endGame();
 		else if (key == "80") // P
 			pauseGame();
+		else if (key == "79") // O
+			$("#sounds").click();
 		
 		keystroke_array.push(next_direction);
 	});

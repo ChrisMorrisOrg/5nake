@@ -53,12 +53,15 @@ Coming Soon
 - Bonus foods
 - Alternative phone backgrounds
 - Full-screen and resolution options
-- Sounds
 - Client-side High-scores
 - Full-game replay
 
 Version History
 ---------------
+### v1.1.001 (2013-Jan-28)
+- SoundFX added.
+- Improved help menu and styling.
+
 ### v1.1.000 (2013-Jan-28)
 - Looping walls added.
 - Infinitely customisable speed setting added.
