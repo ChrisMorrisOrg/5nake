@@ -61,7 +61,7 @@ Version History
 ### v1.1.100 (2013-Jan-30)
 - Now 100% compatible with Mozilla Firefox.
 - Arrow-key page-scrolling bug fixed.
-- Logial errors fixed.
+- Logical errors fixed.
 - Improved keystroke handling.
 - Pause screen added.
 
