@@ -58,6 +58,13 @@ Coming Soon
 
 Version History
 ---------------
+### v1.1.100 (2013-Jan-30)
+- Now 100% compatible with Mozilla Firefox.
+- Arrow-key page-scrolling bug fixed.
+- Logial errors fixed.
+- Improved keystroke handling.
+- Pause screen added.
+
 ### v1.1.001 (2013-Jan-28)
 - SoundFX added.
 - Improved help menu and styling.

@@ -1,6 +1,6 @@
 /**
 5nake.js - Classic Snake in HTML5
-v1.1.001 - 28-Jan-2013, 6:18:05 pm
+v1.1.100 - 30-Jan-2013, 3:51:00 pm
 
 Created by Chris Morris (http://chrismorris.org)
 Fork the project at https://github.com/ChrisMorrisOrg/5nake
@@ -14,7 +14,7 @@ $(document).ready(function(){
 		}, 5000);
 	}
 	
-	var VERSION_NO = "1.1.001";
+	var VERSION_NO = "1.1.002";
 	var canvas = $("#game")[0];
 	var ctx = canvas.getContext("2d");
 	var w = $("#game").width();
@@ -29,9 +29,9 @@ $(document).ready(function(){
 	var score = 0;
 	var gamePaused = false;
 	var keystroke_array = []
-	var next_direction = [];
-	var walls = false;
-	var sounds = true;
+	var next_direction;
+    var walls = false;
+    var sounds = true;
 	var snd = new Audio("snd/eat.wav");
 	var direction, food, snake_array, screenshotURL, backtomenu_timeout;
 
@@ -110,7 +110,7 @@ $(document).ready(function(){
 
 
 	function endGame(){
-                // Update games played counter
+        // Update games played counter
 		// If you don't want to post number of games played, cut from here
 		$.ajax({
 			type: 'POST',
@@ -156,7 +156,7 @@ $(document).ready(function(){
 	function initGame(){
 		// Start the game going east.
 		keystroke_array = []
-		next_direction = [];
+		next_direction;
 		direction = "right";
 		createSnake();
 		createFood();
@@ -196,7 +196,7 @@ $(document).ready(function(){
 
 	function draw(){
 		// Process upcoming movement
-		if(next_direction[0] != null){
+		if(keystroke_array[0] != null){
 			var next_move = keystroke_array[0];
 			keystroke_array.shift();
 			
@@ -308,8 +308,9 @@ $(document).ready(function(){
 
 	// Movement controls
 	$(document).keydown(function(e){
+		next_direction = null;
 		var key = e.which;
-
+		
 		if(key == "37" || key == "65") // left or A
 			next_direction = "left";
 		else if (key == "38" || key == "87") // up or W
@@ -325,19 +326,23 @@ $(document).ready(function(){
 		else if (key == "79") // O
 			$("#sounds").click();
 		
-		keystroke_array.push(next_direction);
-	});
+		if(next_direction){ // Don't add to array if the user isn't sending a direction
+		    e.preventDefault(); // Prevent the user from scrolling the page
+			keystroke_array.push(next_direction);
+		}
+	});	
 	
-	// On keydown, add direction to array for next frame update,
-	// On frame update, if direction is possible, change the direction.
-	
-	
-	
-	// TODO: Actually get pauseGame working.
 	function pauseGame(){
 		if(!gamePaused){
 			gamePaused = true;
 			clearInterval(game_loop);
+			ctx.fillStyle = COLOUR_FOREGROUND;
+			ctx.textAlign = "center";
+			ctx.font = "bold 50px monospace";
+			ctx.fillText("GAME PAUSED", w/2, h/2);
+			ctx.font = "bold 30px monospace";
+			ctx.fillText("Press [P] to resume", w/2, 5*(h/8));
+
 		}else{
 			game_loop = setInterval(draw, SPEED_FACTOR/difficulty);
 			gamePaused = false;
