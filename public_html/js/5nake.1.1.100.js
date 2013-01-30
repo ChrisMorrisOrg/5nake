@@ -14,7 +14,7 @@ $(document).ready(function(){
 		}, 5000);
 	}
 	
-	var VERSION_NO = "1.1.002";
+	var VERSION_NO = "1.1.100";
 	var canvas = $("#game")[0];
 	var ctx = canvas.getContext("2d");
 	var w = $("#game").width();
