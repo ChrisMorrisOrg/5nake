@@ -61,6 +61,7 @@ Version History
 ### v1.1.200 (2013-Feb-02)
 - Bug fixes: Memory management flaw fixed.
 - Snake "weight"/resolution option added.
+- Fixed all known overlapping menu issues.
 
 ### v1.1.100 (2013-Jan-30)
 - Now 100% compatible with Mozilla Firefox.
