@@ -52,12 +52,16 @@ Coming Soon
 - Maps
 - Bonus foods
 - Alternative phone backgrounds
-- Full-screen and resolution options
+- Full-screen
 - Client-side High-scores
 - Full-game replay
 
 Version History
 ---------------
+### v1.1.200 (2013-Feb-02)
+- Bug fixes: Memory management flaw fixed.
+- Snake "weight"/resolution option added.
+
 ### v1.1.100 (2013-Jan-30)
 - Now 100% compatible with Mozilla Firefox.
 - Arrow-key page-scrolling bug fixed.
