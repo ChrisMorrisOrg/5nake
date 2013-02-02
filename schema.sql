@@ -18,4 +18,4 @@ ALTER TABLE plays ADD COLUMN canvas_height INT(5) DEFAULT 310;
 
 # The following alterations are required for v1.1.203 and beyond
 
-ALTER TABLE plays ADD COLUMN screenshot VARCHAR(255);
+ALTER TABLE plays ADD COLUMN screenshot TEXT;
