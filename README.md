@@ -58,7 +58,7 @@ Coming Soon
 
 Latest Update
 ---------------
-### v1.1.202 (2013-Feb-02)
-- Added default values in Node.js script for backwards compatibility.
+### v1.1.203 (2013-Feb-02)
+- Now stores screenshot in database.
 
 A complete history of updates to the game can be found on the [Version History](https://github.com/ChrisMorrisOrg/5nake/wiki/Version-History) page in the [Wiki](https://github.com/ChrisMorrisOrg/5nake/wiki).
