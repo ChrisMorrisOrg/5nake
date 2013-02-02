@@ -56,42 +56,9 @@ Coming Soon
 - Client-side High-scores
 - Full-game replay
 
-Version History
+Latest Update
 ---------------
-### v1.1.200 (2013-Feb-02)
-- Bug fixes: Memory management flaw fixed.
-- Snake "weight"/resolution option added.
-- Fixed all known overlapping menu issues.
+### v1.1.201 (2013-Feb-02)
+- Updated database schema and queries to handle new game settings.
 
-### v1.1.100 (2013-Jan-30)
-- Now 100% compatible with Mozilla Firefox.
-- Arrow-key page-scrolling bug fixed.
-- Logical errors fixed.
-- Improved keystroke handling.
-- Pause screen added.
-
-### v1.1.001 (2013-Jan-28)
-- SoundFX added.
-- Improved help menu and styling.
-
-### v1.1.000 (2013-Jan-28)
-- Looping walls added.
-- Infinitely customisable speed setting added.
-- "p" to pause/resume functionality added.
-- "esc" to quit added.
-- Help menu added.
-- Settings panel introduced.
-
-### v1.0.013 (2013-Jan-27)
-- Game counter added.
-- Configuration files, package.json, node.js scripts added.
-
-### v1.0.010 (2013-Jan-27)
-- Bug fixes: Keystroke dropping fixed.
-- Score now shows in background.
-- WASD controls added.
-- Styling updates.
-- Social media links fixed.
-
-### v1.0.000 (2013-Jan-26)
-- Classic Snake launched with 9 difficulty settings, screenshot capabilities, scoring system, and more.
+A complete history of updates to the game can be found on the [Version History](https://github.com/ChrisMorrisOrg/5nake/wiki/Version-History) page in the [Wiki](https://github.com/ChrisMorrisOrg/5nake/wiki).

@@ -13,6 +13,9 @@ app.post('/plays', function(req, res){
   var difficulty	= req.body.difficulty;
   var score     	= req.body.score;
   var version   	= req.body.version;
+  var snake_weight  = req.body.snake_weight;
+  var canvas_width  = req.body.canvas_width;
+  var canvas_height = req.body.canvas_height;
 
   // Connect to MySQL database
   var connection  = mysql.createConnection({
@@ -27,7 +30,7 @@ app.post('/plays', function(req, res){
   // If the score, difficulty, and version is posted, record it.
   if(typeof score != "undefined" && typeof difficulty != "undefined" && typeof version != "undefined"){
     console.log("POST: 5nake Game Ended, score = " + score + ", difficulty = " + difficulty + ", using version = " + version);
-    connection.query('INSERT INTO plays (difficulty, score, version) VALUES (?, ?, ?)', [difficulty, score, version], function(err, rows, fields) {});
+    connection.query('INSERT INTO plays (difficulty, score, version, snake_weight, canvas_width, canvas_height) VALUES (?, ?, ?, ?, ?, ?)', [difficulty, score, version, snake_weight, canvas_width, canvas_height], function(err, rows, fields) {});
   }
 
   // Return the number of games played
