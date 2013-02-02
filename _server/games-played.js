@@ -10,12 +10,20 @@ var DB_PASS = "password";
 var DB_NAME = "5nake";
 
 app.post('/plays', function(req, res){
-  var difficulty	= req.body.difficulty;
-  var score     	= req.body.score;
-  var version   	= req.body.version;
+  var difficulty    = req.body.difficulty;
+  var score         = req.body.score;
+  var version       = req.body.version;
   var snake_weight  = req.body.snake_weight;
   var canvas_width  = req.body.canvas_width;
   var canvas_height = req.body.canvas_height;
+
+  // If these details are not submitted, then the user is likely running an old vesion of the game
+  // Submit the default values
+  if(snake_weight == null && canvas_width == null && canvas_height == null){
+    snake_weight = 10;
+    canvas_width = 430;
+    canvas_height = 310;
+  }
 
   // Connect to MySQL database
   var connection  = mysql.createConnection({

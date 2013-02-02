@@ -58,7 +58,7 @@ Coming Soon
 
 Latest Update
 ---------------
-### v1.1.201 (2013-Feb-02)
-- Updated database schema and queries to handle new game settings.
+### v1.1.202 (2013-Feb-02)
+- Added default values in Node.js script for backwards compatibility.
 
 A complete history of updates to the game can be found on the [Version History](https://github.com/ChrisMorrisOrg/5nake/wiki/Version-History) page in the [Wiki](https://github.com/ChrisMorrisOrg/5nake/wiki).
