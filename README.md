@@ -58,7 +58,8 @@ Coming Soon
 
 Latest Update
 ---------------
-### v1.1.204 (2013-Feb-03)
-- Added favicon and updated logo.
+### v1.1.205 (2013-Feb-03)
+- Updated Nginx config to strip www. from URL's.
+- Added Google Chrome App link in metadata - further implementation to come.
 
 A complete history of updates to the game can be found on the [Version History](https://github.com/ChrisMorrisOrg/5nake/wiki/Version-History) page in the [Wiki](https://github.com/ChrisMorrisOrg/5nake/wiki).
