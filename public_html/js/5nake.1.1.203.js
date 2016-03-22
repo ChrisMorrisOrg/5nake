@@ -356,7 +356,9 @@ $(document).ready(function(){
 		
 		if(next_direction){ // Don't add to array if the user isn't sending a direction
 		    e.preventDefault(); // Prevent the user from scrolling the page
-			keystroke_array.push(next_direction);
+                        if (keystroke_array[keystroke_array.length - 1] !== next_direction) { // prevent the same direction to stack up
+                            keystroke_array.push(next_direction);
+                        }
 		}
 	});	
 	
