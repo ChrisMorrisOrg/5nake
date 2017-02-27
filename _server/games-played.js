@@ -5,7 +5,7 @@ var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var DB_HOST = "localhost";
-var DB_USER = "root";
+var DB_USER = "username";
 var DB_PASS = "password";
 var DB_NAME = "5nake";
 
