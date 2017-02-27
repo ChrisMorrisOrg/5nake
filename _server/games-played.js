@@ -1,20 +1,20 @@
-var express	= require('express');
-var mysql       = require('mysql');
-var app		= express();
-
-app.use(express.bodyParser());
+var express = require('express');
+var mysql = require('mysql');
+var app = express();
+var bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: true }));
 
 var DB_HOST = "localhost";
-var DB_USER = "username";
+var DB_USER = "root";
 var DB_PASS = "password";
 var DB_NAME = "5nake";
 
 app.post('/plays', function(req, res){
-  var difficulty    = req.body.difficulty;
-  var score         = req.body.score;
-  var version       = req.body.version;
-  var snake_weight  = req.body.snake_weight;
-  var canvas_width  = req.body.canvas_width;
+  var difficulty = req.body.difficulty;
+  var score = req.body.score;
+  var version = req.body.version;
+  var snake_weight = req.body.snake_weight;
+  var canvas_width = req.body.canvas_width;
   var canvas_height = req.body.canvas_height;
   var screenshot = req.body.screenshot;
 
@@ -76,6 +76,5 @@ app.get('/plays', function(req, res){
   connection.end();
 
 });
-
 
 app.listen(3001);
