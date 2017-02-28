@@ -357,7 +357,10 @@ $(document).ready(function(){
 		
 		if(next_direction){ // Don't add to array if the user isn't sending a direction
 		    e.preventDefault(); // Prevent the user from scrolling the page
-			keystroke_array.push(next_direction);
+        // Thanks degusssa! - https://github.com/degusssa/5nake/blob/b7a6d25a11c8f78b516c11f27a487988cdf2e555/public_html/js/5nake.1.1.203.js
+        if (keystroke_array[keystroke_array.length - 1] !== next_direction) { // prevent the same direction to stack up
+          keystroke_array.push(next_direction);
+        }
 		}
 	});	
 	
